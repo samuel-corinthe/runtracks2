@@ -1,0 +1,43 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    background: rgb(63, 63, 63);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+
+select{
+    margin: 0%;
+    padding: 0%;
+    text-align: center;
+    background: rgb(63, 63, 63);
+    border: solid rgb(103, 146, 219) 2px;
+    color: rgb(103, 146, 219);
+     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    height: 2.5rem;
+    width: 10rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border-top-left-radius: 0%;
+    
+}
+
+button{
+    margin: 0%;
+    padding: 0%;
+    text-align: center;
+    background: rgb(63, 63, 63);
+    border: solid rgb(103, 146, 219) 2px;
+    color: rgb(103, 146, 219);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    height: 2.5rem;
+    width: 5rem;
+    font-size: 0.5rem;
+    border-radius: 10px;
+    border-top-left-radius: 0%;
+}
