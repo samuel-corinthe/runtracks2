@@ -37,11 +37,12 @@ if (isset($_POST['largeur']) && isset($_POST['hauteur'])) {
         $espaces = str_repeat(' ', $roof_height - $i - 1);
         $milieu = $largeur - 2 * ($roof_height - $i - 1) - 2;
         if ($milieu < 0) $milieu = 0;
-        echo $espaces . '/' . str_repeat($i == $roof_height - 1 ? '-' : ' ', $milieu + 2) . '\\' . "\n";
+        echo $espaces . '/' . str_repeat($i == $roof_height - 1 ? '-' : ' ', $milieu ) . '\\' . "\n";
     }
 
+
     for ($j = 0; $j < $hauteur; $j++) {
-        echo '|' . str_repeat(' ', $largeur - 1) . "|\n";
+        echo '|' . str_repeat(' ', $largeur - 2) . "|\n";
     }
 
 
