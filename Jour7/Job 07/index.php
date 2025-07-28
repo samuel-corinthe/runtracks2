@@ -18,10 +18,34 @@
             <option  name="gras">gras</option>
             <option  name="cesar">cesar</option>
             <option  name="plateforme">plateforme</option>
-        </select>
+        </select>0
         <button type="submit">submit</button>
     </form>
 <?php 
+
+function gras($str){
+     return "<b>". mb_strtoupper($str[0])."</b>". substr($str,1);
+}
+
+function laplateforme($str){
+    return $str . "_";
+}
+function cesar($str, $decalage = 2) {
+    $result = '';
+    for ($i = 0; $i < strlen($str); $i++) {
+        $char = $str[$i];
+
+        if (ctype_alpha($char)) {
+            $base = ctype_upper($char) ? 'A' : 'a';
+            $result .= chr((ord($char) - ord($base) + $decalage) % 26 + ord($base));
+        } else {
+            $result .= $char;
+        }
+    }
+    return $result;
+}
+
+
 function MyList(){
     $str=$_POST['str'];
     if (isset($_POST['fonction'])) {
@@ -29,19 +53,14 @@ function MyList(){
         switch ($list) {
             case 'gras':
                 
-                echo "<b>". mb_strtoupper($str[0])."</b>". substr($str,1);
+                echo gras($str);
 
                 break;
             case 'cesar':
-                for ($i=0;$i<strlen($str);$i++){
-                $position = $str[$i]; 
-                $newChar = $str[$i=+2];
-                $result = substr($str, 0, $position) . $newChar . substr($str, $position + 1);
-                echo $result;
-                    }
+                echo cesar($str, $decalage = 2);
                 break;
             case 'plateforme':
-                echo $str . "_";
+                echo laplateforme($str);
                 break;
         }
     }
