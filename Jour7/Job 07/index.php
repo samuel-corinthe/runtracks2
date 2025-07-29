@@ -18,7 +18,7 @@
             <option  name="gras">gras</option>
             <option  name="cesar">cesar</option>
             <option  name="plateforme">plateforme</option>
-        </select>0
+        </select>
         <button type="submit">submit</button>
     </form>
 <?php 
