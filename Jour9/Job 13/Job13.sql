@@ -1,1 +1,1 @@
-SELECT AVG(capacite) FROM salles AS moyenne;
+SELECT AVG(capacite) AS moyenne FROM salles ;

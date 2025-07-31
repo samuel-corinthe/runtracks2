@@ -16,7 +16,7 @@
 
 
     <?php
-   
+  
     $host = 'localhost';
     $dbname = 'jour 09';
     $username = 'root';
@@ -27,7 +27,7 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $sql = "SELECT nom, capacite FROM salles";
+        $sql = "SELECT * FROM salles ORDER BY capacite DESC";
         $req = $pdo->query($sql);
 
 

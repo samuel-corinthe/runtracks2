@@ -27,7 +27,7 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $sql = "SELECT nom, capacite FROM salles";
+        $sql = "SELECT SUM(superficie) AS superficie_total FROM etage";
         $req = $pdo->query($sql);
 
 

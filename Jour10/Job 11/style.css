@@ -1,0 +1,34 @@
+body {
+    background: linear-gradient(100deg, #383f75 , #ff723a 60%,#ee2e21 );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+     font-family: "Playwrite HU", cursive;
+}
+
+table {
+    background: white;
+    border: solid 5px #383f75;
+    border-radius: 20px;
+    margin: 0%;
+    padding: 0%;
+    color: #ee2e21;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+td {
+
+        border: solid 1px black ;
+        border-radius: 20px;
+    border-color: rgb(255, 255, 255);
+        margin: 0%;
+}
+
+td:hover {
+    scale: 120%;
+    color: black;
+    background: white;
+    border: solid 5px #fb4b4b;
+}

@@ -16,7 +16,7 @@
 
 
     <?php
-    // Connexion à la base de données
+    
     $host = 'localhost';
     $dbname = 'jour 09';
     $username = 'root';
