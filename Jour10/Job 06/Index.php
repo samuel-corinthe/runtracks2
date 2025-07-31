@@ -27,7 +27,7 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $sql = "SELECT * FROM etudiants WHERE naissance  > '2007-0-0' ";
+        $sql = "SELECT COUNT(*) AS total_etudiants FROM etudiants; ";
         $req = $pdo->query($sql);
 
 
