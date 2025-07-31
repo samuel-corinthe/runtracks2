@@ -62,7 +62,7 @@ function checkWin($player) {
       <div class="board">
         <?php for ($i = 0; $i < 9; $i++): ?>
           <button class="cell" name="cell" value="<?php echo $i ?>" <?php echo $_SESSION["grid"][$i] !== "-" ? "disabled" : "" ?>>
-            <?php echo htmlspecialchars($_SESSION["grid"][$i]) ?>
+            <?php echo $_SESSION["grid"][$i] ?>
           </button>
         <?php endfor; ?>
       </div>
