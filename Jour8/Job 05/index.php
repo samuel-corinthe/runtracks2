@@ -61,13 +61,13 @@ function checkWin($player) {
     <form method="POST">
       <div class="board">
         <?php for ($i = 0; $i < 9; $i++): ?>
-          <button class="cell" name="cell" value="<?= $i ?>" <?= $_SESSION["grid"][$i] !== "-" ? "disabled" : "" ?>>
-            <?= htmlspecialchars($_SESSION["grid"][$i]) ?>
+          <button class="cell" name="cell" value="<?php echo $i ?>" <?php echo $_SESSION["grid"][$i] !== "-" ? "disabled" : "" ?>>
+            <?php echo htmlspecialchars($_SESSION["grid"][$i]) ?>
           </button>
         <?php endfor; ?>
       </div>
       <p class="message">
-        <?= $_SESSION["winner"] === "draw" ? "Match nul" : ($_SESSION["winner"] ? $_SESSION["winner"] . " a gagné" : "Tour du joueur " . $_SESSION["player"]) ?>
+        <?php echo $_SESSION["winner"] === "draw" ? "Match nul" : ($_SESSION["winner"] ? $_SESSION["winner"] . " a gagné" : "Tour du joueur " . $_SESSION["player"]) ?>
       </p>
       <button name="reset" class="resetBtn">Réinitialiser la partie</button>
     </form>
