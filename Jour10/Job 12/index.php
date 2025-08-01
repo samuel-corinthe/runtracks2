@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,39 +9,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-
 <body>
-
-
-
     <?php
-  
     $host = 'localhost';
     $dbname = 'jour 09';
     $username = 'root';
     $password = '';
 
     try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+        $mysqli = new mysqli($host, $username, $password, $dbname);
+        $mysqli->set_charset("utf8");
+        
+        if ($mysqli->connect_error) {
+            throw new Exception("Connection failed: " . $mysqli->connect_error);
+        }
 
         $sql = "SELECT nom, prenom, naissance FROM etudiants WHERE naissance BETWEEN '1998-01-01' AND '2018-01-01'";
-        $req = $pdo->query($sql);
+        $req = $mysqli->query($sql);
 
+        if (!$req) {
+            throw new Exception("Query failed: " . $mysqli->error);
+        }
 
         echo "<table>";
         echo "<tr>";
-
-
-        for ($i = 0; $i < $req->columnCount(); $i++) {
-            $colonne = $req->getColumnMeta($i);
-            echo "<th>" . htmlspecialchars($colonne['name']) . "</th>";
+        
+        
+        $fields = $req->fetch_fields();
+        foreach ($fields as $field) {
+            echo "<th>" . htmlspecialchars($field->name) . "</th>";
         }
         echo "</tr>";
 
-
-        while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
+        
+        while ($row = $req->fetch_assoc()) {
             echo "<tr>";
             foreach ($row as $cell) {
                 echo "<td>" . htmlspecialchars($cell) . "</td>";
@@ -51,11 +51,13 @@
         }
 
         echo "</table>";
-    } catch (PDOException $e) {
+        
+        $req->free();
+        $mysqli->close();
+        
+    } catch (Exception $e) {
         echo "Erreur : " . $e->getMessage();
     }
     ?>
-
 </body>
-
 </html>
